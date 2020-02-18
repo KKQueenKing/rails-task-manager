@@ -2,7 +2,10 @@
 <br>
 <h3><%= @task[:details] %></h3>
 
-<input checked="checked" id="completed" name="completed" type="checkbox" value="yes" />
+<%= link_to "Delete", task_path(@task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<br>
 <%= link_to "Back to List", tasks_path %>
 <br>
 <%= link_to "Edit Task", edit_path %>

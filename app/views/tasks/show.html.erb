@@ -1,0 +1,9 @@
+<h2><%= @task[:title] %></h2>
+<br>
+<h3><%= @task[:details] %></h3>
+
+<%= link_to "Back to list", root_path  %>
+<%= link_to "new task", tasks_new_path %>
+
+<%= link_to "show all tasks", tasks_path %>
+<!-- <a href="/tasks">show all tasks</a> -->

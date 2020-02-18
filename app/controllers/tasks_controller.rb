@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit, :update, :show, :destroy]
 
   def index
     @tasks = Task.all
@@ -16,17 +17,29 @@ class TasksController < ApplicationController
     redirect_to task_path(@task)
   end
 
+  def show
+  end
+
   def edit
   end
 
   def update
+    @task.update(task_params)
+
+    redirect_to task_path(@task)
   end
 
-  def show
-    @task = Task.find(params[:id])
+  def destroy
+    @task.destroy
+
+    redirect_to tasks_path
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params
     params.require(:task).permit(:title, :details)

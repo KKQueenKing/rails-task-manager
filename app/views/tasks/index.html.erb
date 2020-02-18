@@ -16,10 +16,15 @@
     <ol>
       <% @tasks.each do |task| %>
       <li>
+          <label for="complete">Completed: </label>
+          <input id="completed" name="complete" type="checkbox" value="yes" />
         <%= link_to task.title, task_path(task) %>
       <% end %>
       </li>
     </ol>
+    <br>
+    <%= link_to "Create New Task", tasks_new_path %>
+    <br>
     <%= yield %>
   </body>
 </html>
